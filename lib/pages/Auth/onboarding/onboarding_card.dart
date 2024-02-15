@@ -58,7 +58,7 @@ class OnboardingCard extends StatelessWidget {
                   child: Image.asset("Assets/Icons/$childIcon.png"),
                 ),
                 SizedBox(
-                  height: 42,
+                  height: 30,
                 ),
                 Container(
                   child: SizedBox(
@@ -69,14 +69,14 @@ class OnboardingCard extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                             color: AppColor.primaryBackground,
-                            fontSize: 17,
+                            fontSize: 14,
                             fontWeight: FontWeight.w500),
                       ),
                     ),
                   ),
                 ),
                 SizedBox(
-                  height: 75,
+                  height: 30,
                 ),
                 LargeButton(
                     text: text,

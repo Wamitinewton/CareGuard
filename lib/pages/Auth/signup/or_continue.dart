@@ -34,7 +34,7 @@ class AuthMethods extends StatelessWidget {
               SizedBox(width: 8,),
               Text(text, style: TextStyle(
                 color: Colors.black,
-                fontSize: 20,
+                fontSize: 17,
               ),)
             ],
           ),

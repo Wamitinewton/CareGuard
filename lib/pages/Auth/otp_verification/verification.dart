@@ -99,6 +99,7 @@ class VerificationScreen extends StatelessWidget {
                         onChanged: (value) {
                           if (value.length == 1) {
                             FocusScope.of(context).nextFocus();
+                            
                           }
                         },
                       )

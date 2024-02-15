@@ -109,7 +109,9 @@ class SigninScreen extends StatelessWidget {
               LargeButton(
                   text: 'Sign In',
                   color: const Color.fromRGBO(51, 144, 124, 1),
-                  ontap: () {},
+                  ontap: () {
+                    Get.offAllNamed(AppRoutes.homescreen);
+                  },
                   containerColor: AppColor.scaffoldBackground),
               SizedBox(
                 height: 30,

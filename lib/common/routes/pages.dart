@@ -9,6 +9,7 @@ import 'package:careguard/pages/Auth/otp_verification/verification.dart';
 import 'package:careguard/pages/Auth/otp_verification/view.dart';
 import 'package:careguard/pages/Auth/signup/binding.dart';
 import 'package:careguard/pages/Auth/signup/view.dart';
+import 'package:careguard/pages/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -38,6 +39,7 @@ class AppPages {
     GetPage(
         name: AppRoutes.otpverify,
         page: () => VerificationScreen(),
-        binding: PhoneNumberBindings())
+        binding: PhoneNumberBindings()),
+    GetPage(name: AppRoutes.homescreen, page: () => HomeScreen()),
   ];
 }

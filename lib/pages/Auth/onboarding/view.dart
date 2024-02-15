@@ -17,8 +17,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
   int _currentPage = 0;
   int selectedIndex = 0;
   // int listDot = 3;
-  static const _kDuration = const Duration(milliseconds: 300);
-  static const _kCurve = Curves.bounceIn;
+  static const _kDuration =  Duration(milliseconds: 300);
+  static const _kCurve = Curves.easeInExpo;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,8 +1,8 @@
 import 'package:careguard/common/routes/names.dart';
 import 'package:careguard/common/style/color.dart';
 import 'package:careguard/common/widgets/button.dart';
+import 'package:careguard/common/widgets/divider.dart';
 import 'package:careguard/common/widgets/input.dart';
-import 'package:careguard/pages/Auth/signup/controller.dart';
 import 'package:careguard/pages/Auth/signup/or_continue.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +25,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController lname = TextEditingController();
 
   final TextEditingController email = TextEditingController();
+
   // final SignUpController _signUpController = Get.put(SignUpController());
   bool _passwordVisible = false;
   bool _cfmPasswordVisible = false;
@@ -40,8 +41,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
           child: Column(
             children: [
               Padding(
-                padding:
-                    EdgeInsets.only(left: 70, right: 70, top: 40, bottom: 20),
+                padding: const EdgeInsets.only(
+                    left: 70, right: 70, top: 40, bottom: 20),
                 child: Image.asset('Assets/Icons/mentorship.png'),
               ),
               // SizedBox(
@@ -51,11 +52,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 'Welcome to careguard.Register to continue',
                 style: TextStyle(color: AppColor.primaryText, fontSize: 20),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               inputEmailEdit(
-                  preffix: Icon(
+                  preffix: const Icon(
                     Icons.person_2,
                     size: 35,
                   ),
@@ -64,7 +65,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     onPressed: () {
                       fname.clear();
                     },
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.clear_all,
                       size: 35,
                     ),
@@ -73,11 +74,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   controller: fname,
                   keyboardType: TextInputType.text),
 
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               inputEmailEdit(
-                  preffix: Icon(
+                  preffix: const Icon(
                     Icons.person_2,
                     size: 35,
                   ),
@@ -86,7 +87,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     onPressed: () {
                       lname.clear();
                     },
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.clear_all,
                       size: 35,
                     ),
@@ -94,11 +95,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   autofocus: false,
                   controller: lname,
                   keyboardType: TextInputType.text),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               inputEmailEdit(
-                preffix: Icon(
+                preffix: const Icon(
                   Icons.email,
                   size: 35,
                 ),
@@ -107,7 +108,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   onPressed: () {
                     email.clear();
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.clear_all,
                     size: 35,
                   ),
@@ -116,11 +117,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 controller: email,
                 keyboardType: TextInputType.emailAddress,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               inputEmailEdit(
-                preffix: Icon(
+                preffix: const Icon(
                   Icons.lock,
                   size: 35,
                 ),
@@ -132,18 +133,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       });
                     },
                     icon: _passwordVisible
-                        ? Icon(Icons.visibility)
-                        : Icon(Icons.visibility_off)),
+                        ? const Icon(Icons.visibility)
+                        : const Icon(Icons.visibility_off)),
                 autofocus: false,
                 controller: pwd,
                 keyboardType: TextInputType.multiline,
                 obscureText: !_passwordVisible,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               inputEmailEdit(
-                preffix: Icon(
+                preffix: const Icon(
                   Icons.lock,
                   size: 35,
                 ),
@@ -155,27 +156,29 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       });
                     },
                     icon: _cfmPasswordVisible
-                        ? Icon(Icons.visibility)
-                        : Icon(Icons.visibility_off)),
+                        ? const Icon(Icons.visibility)
+                        : const Icon(Icons.visibility_off)),
                 autofocus: false,
                 controller: cfmpwd,
                 keyboardType: TextInputType.multiline,
                 obscureText: !_cfmPasswordVisible,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 35,
               ),
               LargeButton(
                   text: 'Register',
                   color: const Color.fromRGBO(51, 144, 124, 1),
-                  ontap: () {},
+                  ontap: () {
+                    Get.offAllNamed(AppRoutes.homescreen);
+                  },
                   containerColor: AppColor.scaffoldBackground),
 
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Text.rich(TextSpan(children: [
-                TextSpan(
+                const TextSpan(
                   text: 'Have an account? ',
                   style: TextStyle(
                     color: Colors.white,
@@ -189,24 +192,34 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         Get.offAllNamed(AppRoutes.signin);
                       },
                     text: 'Sign in',
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Colors.blue,
                         fontSize: 18,
                         fontWeight: FontWeight.w600)),
               ])),
-              SizedBox(
+              const SizedBox(
                 height: 14,
               ),
-
-              AuthMethods(text: 'Google Authentication', authlogo: 'authlogo1'),
-              SizedBox(
+              const Row(
+                children: [
+                  DividerUtil(),
+                  Text('Or continue with'),
+                  DividerUtil(),
+                ],
+              ),
+              const SizedBox(
+                height: 14,
+              ),
+              const AuthMethods(
+                  text: 'Google Authentication', authlogo: 'authlogo1'),
+              const SizedBox(
                 height: 15,
               ),
               GestureDetector(
                   onTap: () {
                     Get.offAllNamed(AppRoutes.inputphone);
                   },
-                  child: AuthMethods(
+                  child: const AuthMethods(
                       text: 'Phone Authentication', authlogo: 'authlogo2'))
             ],
           ),
