@@ -9,7 +9,10 @@ import 'package:careguard/pages/Auth/otp_verification/verification.dart';
 import 'package:careguard/pages/Auth/otp_verification/view.dart';
 import 'package:careguard/pages/Auth/signup/binding.dart';
 import 'package:careguard/pages/Auth/signup/view.dart';
-import 'package:careguard/pages/home/home_screen.dart';
+import 'package:careguard/pages/home/application/binding.dart';
+import 'package:careguard/pages/home/application/home_screen.dart';
+import 'package:careguard/pages/home/profile/binding.dart';
+import 'package:careguard/pages/home/profile/view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -40,6 +43,15 @@ class AppPages {
         name: AppRoutes.otpverify,
         page: () => VerificationScreen(),
         binding: PhoneNumberBindings()),
-    GetPage(name: AppRoutes.homescreen, page: () => HomeScreen()),
+    GetPage(
+      name: AppRoutes.homescreen,
+      page: () => HomeScreen(),
+      binding: HomeScreenBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.profile,
+      page: () => ProfileScreen(),
+      binding: ProfileBinding(),
+    )
   ];
 }

@@ -5,4 +5,5 @@ class AppRoutes {
   static const inputphone = '/inputphone';
   static const otpverify = '/otpverify';
   static const homescreen = '/homescreen';
+  static const profile = '/profile';
 }

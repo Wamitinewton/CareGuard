@@ -2,8 +2,7 @@ import 'dart:math';
 
 import 'package:careguard/common/routes/names.dart';
 import 'package:careguard/common/style/color.dart';
-import 'package:careguard/common/widgets/container_util.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:careguard/pages/home/application/container_util.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
