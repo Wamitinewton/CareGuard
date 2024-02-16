@@ -7,6 +7,6 @@ List<String> textList = [
   'Community watch',
   'Medical resources',
   'Travel safely',
-  'Account settings',
+  'About us',
   'Dashboard',
 ];

@@ -6,4 +6,5 @@ class AppRoutes {
   static const otpverify = '/otpverify';
   static const homescreen = '/homescreen';
   static const profile = '/profile';
+  static const emergency = '/emergency';
 }

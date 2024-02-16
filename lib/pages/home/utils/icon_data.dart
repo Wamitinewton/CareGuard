@@ -10,6 +10,6 @@ List<IconData> iconList = [
   Icons.groups,
   Icons.medical_information_outlined,
   Icons.travel_explore,
-  Icons.account_circle_outlined,
+  Icons.info_outline,
   Icons.dashboard,
 ];

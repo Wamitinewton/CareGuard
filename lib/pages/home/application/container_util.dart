@@ -27,7 +27,7 @@ class ContainerUtil {
     currentIconIndex = (currentIconIndex + 1) % iconList.length;
     currentColorIndex = (currentColorIndex + 1) % colorList.length;
     return GestureDetector(
-      onTap: () => _handleContainerTap(currentIconIndex),
+      onTap: () => _handleContainerTap(_selectedIndex),
       child: Padding(
         padding: const EdgeInsets.only(left: 8, right: 8, bottom: 5),
         child: Container(
@@ -72,11 +72,11 @@ class ContainerUtil {
     );
   }
 
-  static _handleContainerTap(currentIconIndex) {
-    // selectedIndex = currentIconIndex;
-    switch (currentIconIndex) {
+  static _handleContainerTap(int index) {
+    _selectedIndex = index;
+    switch (index) {
       case 0:
-       Get.offAllNamed(AppRoutes.profile);
+        Get.offAllNamed(AppRoutes.emergency);
         break;
       case 1:
         Get.snackbar('hey', 'I love Faith',
