@@ -5,10 +5,12 @@ import 'package:get/get.dart';
 class BottomNavigationUtil {
   static List<BottomNavigationBarItem> getBottomNavBarItems() {
     return const [
+      BottomNavigationBarItem(
+          icon: Icon(Icons.emergency_outlined), label: 'Emergency'),
       BottomNavigationBarItem(icon: Icon(Icons.location_on), label: 'Location'),
       BottomNavigationBarItem(
           icon: Icon(Icons.info_outline), label: 'About us'),
-      BottomNavigationBarItem(icon: Icon(Icons.dashboard), label: 'Dashboard'),
+      BottomNavigationBarItem(icon: Icon(Icons.person), label: 'profile'),
     ];
   }
 
@@ -21,10 +23,13 @@ class BottomNavigationUtil {
         Get.offAllNamed(AppRoutes.emergency);
         break;
       case 1:
-        Get.offAllNamed(AppRoutes.emergency);
+        Get.offAllNamed(AppRoutes.profile);
         break;
       case 2:
-        Get.offAllNamed(AppRoutes.emergency);
+        Get.offAllNamed(AppRoutes.profile);
+        break;
+      case 3:
+        Get.offAllNamed(AppRoutes.profile);
         break;
     }
   }
@@ -39,5 +44,9 @@ class BottomNavigationUtil {
       showUnselectedLabels: true,
       showSelectedLabels: true,
     );
+  }
+  static int onExit(){
+   _bottomIndex = 0;
+    return _bottomIndex;
   }
 }

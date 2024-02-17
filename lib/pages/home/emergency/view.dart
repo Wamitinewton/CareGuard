@@ -1,5 +1,6 @@
 import 'package:careguard/common/style/color.dart';
 import 'package:careguard/pages/home/emergency/container_util.dart';
+import 'package:careguard/pages/home/emergency/emergency_component.dart';
 import 'package:careguard/pages/home/utils/bottombar_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -12,33 +13,46 @@ class EmergencyPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
-        body: const SingleChildScrollView(
+        body: SingleChildScrollView(
             child: Column(
           children: [
-            Padding(
-              padding: EdgeInsets.only(top: 10),
-              child: Text(
-                'Hey Newton',
-                style: TextStyle(
-                    fontSize: 23,
-                    fontWeight: FontWeight.w700,
-                    color: AppColor.primaryText),
+            const Padding(
+              padding: EdgeInsets.only(top: 10, left: 15),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    'Hey Newton',
+                    style: TextStyle(
+                        fontSize: 23,
+                        fontWeight: FontWeight.w700,
+                        color: AppColor.primaryText),
+                  ),
+                ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
-            Text(
-              'How can we help you?',
-              style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w500,
-                  color: AppColor.primaryBackground),
+            const Padding(
+              padding: EdgeInsets.only(left: 15),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    'How can we help you?',
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                        color: AppColor.primaryBackground),
+                  ),
+                ],
+              ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
-            Row(
+            const Row(
               children: [
                 ContainerUtility(
                     text: 'Hospital',
@@ -50,22 +64,36 @@ class EmergencyPage extends StatelessWidget {
                     color: Color(0xFFFFC107)),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
                   padding: EdgeInsets.only(left: 10),
-                  child: Text('Emergency Contacts', style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w500,
-
-                  ),),
+                  child: Text(
+                    'Emergency Contacts',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                 )
               ],
-            )
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            buildContactContainer('Officer 1', '+254726076806'),
+            const SizedBox(
+              height: 15,
+            ),
+            buildContactContainer('Officer 2', '+254726076806'),
+            const SizedBox(
+              height: 15,
+            ),
+            buildContactContainer('Meru Hospital', '+254726076806'),
           ],
         )),
         bottomNavigationBar: Container(

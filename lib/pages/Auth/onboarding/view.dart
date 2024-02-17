@@ -16,9 +16,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
   final OnboardingController controller = Get.put(OnboardingController());
   int _currentPage = 0;
   int selectedIndex = 0;
+
   // int listDot = 3;
-  static const _kDuration =  Duration(milliseconds: 300);
+  static const _kDuration = Duration(milliseconds: 300);
   static const _kCurve = Curves.easeInExpo;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,7 +56,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                           curve: Curves.bounceInOut);
                     },
                     content:
-                        'Advocating for child security is an imperative shared responsibility that transcends boundaries. Every child deserves a safe environment, nurturing their well-being and fostering healthy development.'),
+                        'Child security demands constant vigilance, encompassing supervision, online education, and open communication for a safe environment, fostering resilience and confidence in children.'),
                 OnboardingCard(
                     text: 'Complete',
                     childIcon: 'iconchild3',
@@ -65,7 +67,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       controller.goToSignUp();
                     },
                     content:
-                        'Advocating for child security is an imperative shared responsibility that transcends boundaries. Every child deserves a safe environment, nurturing their well-being and fostering healthy development.')
+                        'Child security is a fundamental priority, requiring vigilant supervision, educational measures for online safety, and fostering open communication. Creating a secure environment empowers children to navigate the world with confidence and resilience.')
               ],
             ),
           ),

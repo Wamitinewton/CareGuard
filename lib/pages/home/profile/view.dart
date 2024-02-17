@@ -2,6 +2,7 @@ import 'package:careguard/common/routes/names.dart';
 import 'package:careguard/common/style/color.dart';
 import 'package:careguard/pages/Auth/onboarding/controller.dart';
 import 'package:careguard/pages/home/profile/profile_component.dart';
+import 'package:careguard/pages/home/utils/bottombar_util.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -148,7 +149,6 @@ class ProfileScreen extends GetView<OnboardingController> {
                       print("... Edit Profile...");
                     },
                   ),
-                 
                   ProfileComponent(
                     text: "Feedback",
                     onTap: () {
@@ -171,6 +171,7 @@ class ProfileScreen extends GetView<OnboardingController> {
                     onTap: () {
                       print("... Logout ...");
                       Get.offAllNamed(AppRoutes.signin);
+                      BottomNavigationUtil.onExit();
                     },
                     child: const Padding(
                       padding: EdgeInsets.only(left: 20),
