@@ -16,13 +16,13 @@ class ContainerUtil {
   static int currentIconIndex = 0;
   static int currentColorIndex = 0;
   static int _selectedIndex = 0;
-  IconData selectedIcon = iconList[currentIconIndex];
+  static IconData selectedIcon = iconList[currentIconIndex];
 
   static Widget coloredContainer() {
     Color containerColor = getRandomColor();
     IconData selectedIcon = iconList[currentIconIndex];
     Color nextColor = colorList[currentColorIndex];
-    String selectedText = textList[currentIconIndex];
+     String selectedText = textList[currentIconIndex];
 
     currentIconIndex = (currentIconIndex + 1) % iconList.length;
     currentColorIndex = (currentColorIndex + 1) % colorList.length;
@@ -72,12 +72,12 @@ class ContainerUtil {
     );
   }
 
-  static _handleContainerTap(int index) {
-    _selectedIndex = index;
-    switch (index) {
+  static _handleContainerTap(int selectedIcon) {
+    _selectedIndex = selectedIcon;
+    switch (selectedIcon) {
       case 0:
         Get.offAllNamed(AppRoutes.emergency);
-        break;
+       
       case 1:
         Get.snackbar('hey', 'I love Faith',
             snackPosition: SnackPosition.TOP,
@@ -86,7 +86,7 @@ class ContainerUtil {
             forwardAnimationCurve: Curves.easeInCirc,
             backgroundColor: Colors.blue,
             colorText: Colors.black);
-        break;
+       
       case 2:
         Get.snackbar('Hey', 'I am a programmer',
             snackPosition: SnackPosition.TOP,
@@ -95,7 +95,7 @@ class ContainerUtil {
             forwardAnimationCurve: Curves.easeInCirc,
             backgroundColor: Colors.blue,
             colorText: Colors.black);
-        break;
+       
       case 3:
         Get.snackbar('title', 'message',
             snackPosition: SnackPosition.TOP,
@@ -104,7 +104,7 @@ class ContainerUtil {
             forwardAnimationCurve: Curves.easeInCirc,
             backgroundColor: Colors.blue,
             colorText: Colors.black);
-        break;
+       
       case 4:
         Get.snackbar('title', 'message',
             snackPosition: SnackPosition.TOP,
@@ -113,7 +113,7 @@ class ContainerUtil {
             forwardAnimationCurve: Curves.easeInCirc,
             backgroundColor: Colors.blue,
             colorText: Colors.black);
-        break;
+       
       case 5:
         Get.snackbar('title', 'message',
             snackPosition: SnackPosition.TOP,
@@ -122,7 +122,7 @@ class ContainerUtil {
             forwardAnimationCurve: Curves.easeInCirc,
             backgroundColor: Colors.blue,
             colorText: Colors.black);
-        break;
+       
       case 7:
         Get.snackbar('title', 'message',
             snackPosition: SnackPosition.TOP,
@@ -131,7 +131,7 @@ class ContainerUtil {
             forwardAnimationCurve: Curves.easeInCirc,
             backgroundColor: Colors.blue,
             colorText: Colors.black);
-        break;
+       
       case 8:
         Get.snackbar('title', 'message',
             snackPosition: SnackPosition.TOP,
@@ -140,7 +140,7 @@ class ContainerUtil {
             forwardAnimationCurve: Curves.easeInCirc,
             backgroundColor: Colors.blue,
             colorText: Colors.black);
-        break;
+       
       case 9:
         Get.snackbar('title', 'message',
             snackPosition: SnackPosition.TOP,
@@ -149,7 +149,7 @@ class ContainerUtil {
             forwardAnimationCurve: Curves.easeInCirc,
             backgroundColor: Colors.blue,
             colorText: Colors.black);
-        break;
+       
       case 10:
         Get.snackbar('title', 'message',
             snackPosition: SnackPosition.TOP,
@@ -158,7 +158,7 @@ class ContainerUtil {
             forwardAnimationCurve: Curves.easeInCirc,
             backgroundColor: Colors.blue,
             colorText: Colors.black);
-        break;
+       
 
       default:
         Get.snackbar('title', 'message');

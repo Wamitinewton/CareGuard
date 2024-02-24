@@ -1,5 +1,6 @@
 import 'package:careguard/common/routes/names.dart';
 import 'package:careguard/common/style/color.dart';
+import 'package:careguard/pages/Auth/login/controller.dart';
 import 'package:flutter/gestures.dart';
 
 import 'package:flutter/material.dart';
@@ -9,8 +10,10 @@ import '../../../common/widgets/button.dart';
 import '../../../common/widgets/input.dart';
 
 class SigninScreen extends StatelessWidget {
-  final TextEditingController email = TextEditingController();
-  final TextEditingController pwd = TextEditingController();
+  static final TextEditingController email = TextEditingController();
+  static final TextEditingController pwd = TextEditingController();
+
+  final SignInController _signInController = Get.put(SignInController());
   SigninScreen({super.key});
 
   @override
@@ -20,31 +23,31 @@ class SigninScreen extends StatelessWidget {
       backgroundColor: AppColor.primaryBackground,
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.only(bottom: 14),
+          padding: const EdgeInsets.only(bottom: 14),
           child: Column(
             children: [
               Padding(
-                padding:
-                    EdgeInsets.only(left: 70, right: 70, top: 40, bottom: 20),
+                padding: const EdgeInsets.only(
+                    left: 70, right: 70, top: 40, bottom: 20),
                 child: Image.asset('Assets/Icons/orphanage.png'),
               ),
-              Text(
+              const Text(
                 'Welcome back',
                 style: TextStyle(color: Colors.black, fontSize: 24),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Text('To continue using your account, log in',
+              const Text('To continue using your account, log in',
                   style: TextStyle(
                     color: Colors.grey,
                     fontSize: 20,
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               inputEmailEdit(
-                preffix: Icon(
+                preffix: const Icon(
                   Icons.email,
                   size: 35,
                 ),
@@ -53,7 +56,7 @@ class SigninScreen extends StatelessWidget {
                   onPressed: () {
                     email.clear();
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.clear_all,
                     size: 35,
                   ),
@@ -62,11 +65,11 @@ class SigninScreen extends StatelessWidget {
                 controller: email,
                 keyboardType: TextInputType.emailAddress,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               inputEmailEdit(
-                preffix: Icon(
+                preffix: const Icon(
                   Icons.lock,
                   size: 35,
                 ),
@@ -81,17 +84,17 @@ class SigninScreen extends StatelessWidget {
                           backgroundColor: Colors.blue,
                           colorText: Colors.black);
                     },
-                    icon: Icon(Icons.visibility_off_outlined)),
+                    icon: const Icon(Icons.visibility_off_outlined)),
                 autofocus: false,
                 controller: pwd,
                 keyboardType: TextInputType.multiline,
                 obscureText: true,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 7,
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 35),
+              const Padding(
+                padding: EdgeInsets.only(right: 35),
                 child: Align(
                   alignment: Alignment.centerRight,
                   child: Text(
@@ -103,21 +106,22 @@ class SigninScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 35,
               ),
               LargeButton(
                   text: 'Sign In',
                   color: const Color.fromRGBO(51, 144, 124, 1),
-                  ontap: () {
+                  ontap: () async {
+                    await _signInController.signIn(email.text, pwd.text);
                     Get.offAllNamed(AppRoutes.homescreen);
                   },
                   containerColor: AppColor.scaffoldBackground),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Text.rich(TextSpan(children: [
-                TextSpan(
+                const TextSpan(
                   text: 'Don\'t Have an account? ',
                   style: TextStyle(
                     color: Colors.white,
@@ -131,7 +135,7 @@ class SigninScreen extends StatelessWidget {
                         Get.offAllNamed(AppRoutes.signup);
                       },
                     text: 'Register',
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Colors.blue,
                         fontSize: 18,
                         fontWeight: FontWeight.w600)),

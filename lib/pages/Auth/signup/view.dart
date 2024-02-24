@@ -3,6 +3,7 @@ import 'package:careguard/common/style/color.dart';
 import 'package:careguard/common/widgets/button.dart';
 import 'package:careguard/common/widgets/divider.dart';
 import 'package:careguard/common/widgets/input.dart';
+import 'package:careguard/pages/Auth/signup/controller.dart';
 import 'package:careguard/pages/Auth/signup/or_continue.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   final TextEditingController email = TextEditingController();
 
-  // final SignUpController _signUpController = Get.put(SignUpController());
+  final SignUpController _signUpController = Get.put(SignUpController());
   bool _passwordVisible = false;
   bool _cfmPasswordVisible = false;
 
@@ -170,6 +171,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   text: 'Register',
                   color: const Color.fromRGBO(51, 144, 124, 1),
                   ontap: () {
+                    _signUpController.signUp(fname.text, lname.text, email.text,
+                        cfmpwd.text, pwd.text);
                     Get.offAllNamed(AppRoutes.homescreen);
                   },
                   containerColor: AppColor.scaffoldBackground),
